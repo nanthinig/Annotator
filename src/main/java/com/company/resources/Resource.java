@@ -91,4 +91,15 @@ public class Resource {
         System.out.println("Student name:" + s.getName());
         System.out.println("Student Age:" + s.getAge());
     }
+
+    @GET
+    @Path("/matrix")
+    @Produces(MediaType.TEXT_PLAIN)
+    public String getMatrixParameter(
+            @MatrixParam("author") String author,
+            @MatrixParam("year") int year,
+            @MatrixParam("book") String book)
+    {
+        return "Author : "+author+" Book : "+book+" Year : "+year;
+    }
 }
