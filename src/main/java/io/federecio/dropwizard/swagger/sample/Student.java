@@ -1,4 +1,4 @@
-package com.company.api;
+package io.federecio.dropwizard.swagger.sample;
 
 import javax.xml.bind.annotation.XmlRootElement;
 

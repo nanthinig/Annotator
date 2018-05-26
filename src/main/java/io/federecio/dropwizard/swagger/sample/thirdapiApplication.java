@@ -1,9 +1,10 @@
-package com.company;
+package io.federecio.dropwizard.swagger.sample;
 
-import com.company.resources.Resource;
 import io.dropwizard.Application;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
+import io.federecio.dropwizard.swagger.SwaggerBundle;
+import io.federecio.dropwizard.swagger.SwaggerBundleConfiguration;
 
 public class thirdapiApplication extends Application<thirdapiConfiguration> {
 
@@ -19,6 +20,15 @@ public class thirdapiApplication extends Application<thirdapiConfiguration> {
     @Override
     public void initialize(final Bootstrap<thirdapiConfiguration> bootstrap) {
         // TODO: application initialization
+        bootstrap.addBundle(new SwaggerBundle<thirdapiConfiguration>() {
+            @Override
+            protected SwaggerBundleConfiguration getSwaggerBundleConfiguration(thirdapiConfiguration sampleConfiguration) {
+                // this would be the preferred way to set up swagger, you can also construct the object here programtically if you want
+                return sampleConfiguration.swaggerBundleConfiguration;
+            }
+
+        });
+
     }
 
     @Override
